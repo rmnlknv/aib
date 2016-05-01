@@ -1,0 +1,26 @@
+<h1>List of threads</h1>
+
+<div class="table-responsive">          
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name of thread</th>
+        <th>Description of thread</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @plots.each do |plot| %>
+	      <tr>
+	        <td><%= plot.title %></td>
+	        <td><%= plot.description %></td>
+	        <td><%= link_to 'Read more', plot %></td>
+	      </tr>
+	  <% end %>
+    </tbody>
+  </table>
+  </div>
+
+  <br>
+
+<%= link_to 'Add new thread', new_plot_path %>

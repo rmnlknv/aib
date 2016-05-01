@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  #get 'plots/index'
+
+  #get 'plots/new'
+  root 'plots#index'
+  resources :plots
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
