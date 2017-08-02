@@ -1,0 +1,11 @@
+<%= form_for(@plot) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+    <%= hidden_field_tag 'category', @category.name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

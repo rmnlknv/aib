@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
-  #get 'plots/index'
+  
+  #get 'answers/new'
 
-  #get 'plots/new'
-  root 'plots#index'
-  resources :plots
+  #get 'plots/index'
+  #get 'plots/show'
+
+  root 'categories#index'
+  resources :categories, :plots, :answers
+
+  get '/:category' => 'categories#show'
+
+  get '/:category/new_thread' => 'plots#new', as: :new_thread
+  get '/:category/:plot' => 'plots#show'
+  get 'plots/:category/:plot' => 'plots#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

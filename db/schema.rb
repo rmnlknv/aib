@@ -11,15 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160501182823) do
+ActiveRecord::Schema.define(version: 20160623121952) do
+
+  create_table "answers", force: :cascade do |t|
+    t.string   "email"
+    t.text     "content"
+    t.string   "attach1"
+    t.string   "attach2"
+    t.string   "attach3"
+    t.string   "attach4"
+    t.boolean  "is_op"
+    t.integer  "plot_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "plots", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.string   "image1"
-    t.string   "image2"
-    t.string   "image3"
-    t.string   "image4"
+    t.string   "name"
+    t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

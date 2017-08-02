@@ -1,0 +1,23 @@
+<%= form_for locals[:answer], html: {multipart: true}  do |f| %>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    img1: <%= f.file_field :attach1 %><br>
+    img2: <%= f.file_field :attach2 %><br>
+    img3: <%= f.file_field :attach3 %><br>
+    img4: <%= f.file_field :attach4 %>
+  </div>
+    <%= hidden_field_tag 'plot', locals[:plot].id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

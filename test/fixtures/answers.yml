@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  content: MyText
+  attach1: MyString
+  attach2: MyString
+  attach3: MyString
+  attach4: MyString
+  is_op: 
+
+two:
+  email: MyString
+  content: MyText
+  attach1: MyString
+  attach2: MyString
+  attach3: MyString
+  attach4: MyString
+  is_op: 

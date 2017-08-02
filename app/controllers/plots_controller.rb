@@ -1,21 +1,29 @@
 class PlotsController < ApplicationController
+  
   def index
   	@plots = Plot.all
   end
 
   def new
+  	@category = Category.find_by_name(params[:category])
   	@plot = Plot.new
   end
 
   def create
-  	@plot = Plot.new(plot_params)
-  	if @plot.save
-  		redirect_to root_path
-  	end
+  	category = Category.find_by_name(params[:category])
+    plot = Plot.new(plot_params)
+    category.plots << plot
+    redirect_to "/#{category.name}/#{plot.id}"
   end
 
-  private
-  def plot_params
-  	params.require(:plot).permit(:title, :description, :image1, :image2, :image3, :image4)
+  def show
+  	@plot = Plot.find_by_id(params[:plot])
+    @answers = @plot.answers
   end
+
+  	private
+	def plot_params
+		params.require(:plot).permit(:name)
+	end
+
 end

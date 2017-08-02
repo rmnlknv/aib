@@ -1,0 +1,35 @@
+<p><%= @plot.name %></p>
+
+<ul>
+  <% @answers.each do |answer| %>
+  <hr>
+  <%= answer.email %><br>
+  <%= answer.content %><br>
+  <% if answer.attach1_url.to_s != "" && answer.attach2_url.to_s != "" && answer.attach3_url.to_s != "" && answer.attach4_url.to_s != "" %>
+
+    <%= image_tag answer.attach1_url(:thumb4).to_s %>
+  	<%= image_tag answer.attach2_url(:thumb4).to_s %>
+  	<%= image_tag answer.attach3_url(:thumb4).to_s %>
+ 	<%= image_tag answer.attach4_url(:thumb4).to_s %>
+  <% elsif answer.attach1_url.to_s != "" && answer.attach2_url.to_s != "" && answer.attach3_url.to_s != "" %>
+    	<%= puts "3" %>
+
+    <%= image_tag answer.attach1_url(:thumb3).to_s %>
+  	<%= image_tag answer.attach2_url(:thumb3).to_s %>
+  	<%= image_tag answer.attach3_url(:thumb3).to_s %>
+  <% elsif answer.attach1_url.to_s != "" && answer.attach2_url.to_s != "" %>
+    	<%= puts "2" %>
+
+  	<%= image_tag answer.attach1_url(:thumb2).to_s %>
+  	<%= image_tag answer.attach2_url(:thumb2).to_s %>
+  <% elsif answer.attach1_url.to_s != "" %>
+    	<%= puts "1" %>
+
+  	<%= image_tag answer.attach1_url(:thumb1).to_s %>
+  <% end %>
+
+  <% end %>
+
+<div>
+  <%= render 'answers/new', locals: { answer: Answer.new, plot: @plot} %>
+</div>

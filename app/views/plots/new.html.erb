@@ -1,21 +1,5 @@
-<div class="col-md-4 col-md-offset-4">
-  <div class="well">
-    <h2 class="text-center lead">New thread</h2>
+<h1>New thread</h1>
 
-    <%= form_for(@plot) do |f| %>
-      <div class="form-group">
-        <%= f.label :title %><br />
-        <%= f.text_field :title, autofocus: true, class: "form-control" %>
-      </div>
+<%= render 'form' %>
 
-      <div class="form-group">
-        <%= f.label :description %><br />
-        <%= f.text_area :description, class: "form-control" %>
-      </div>
-
-      <%= f.submit 'Create', class: "btn btn-primary center-block" %>
-
-    <% end %>
-
-  </div>
-</div>
+<%= link_to 'Back', :back %>

@@ -1,0 +1,6 @@
+<center>/<%= @category.name %>/</center>
+<% @category.plots.each do |plot| %>
+<p><%= plot.name %> | <%= link_to "Read more", "/#{@category.name}/#{plot.id}" %></p>
+<% end %>
+
+<%= link_to "new thread", new_thread_path %>
